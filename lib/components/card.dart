@@ -22,11 +22,11 @@ class NewsCard extends StatelessWidget {
                   news.imageUrl,
                   fit: BoxFit.fitWidth,
                   width: MediaQuery.of(context).size.width * 0.90,
-                  height: 200,
+                  height: 230,
                 ),
               ),
               Padding(
-                padding: const EdgeInsets.all(20.0),
+                padding: const EdgeInsets.all(25.0),
                 child: Text(
                   news.text,
                   style: TextStyle(fontWeight: FontWeight.w700),
