@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:full_screen_image/full_screen_image.dart';
 import 'package:test_app/models/news.dart';
 
 class NewsCard extends StatelessWidget {
@@ -18,11 +19,14 @@ class NewsCard extends StatelessWidget {
                 borderRadius: BorderRadius.vertical(
                   top: Radius.circular(20),
                 ),
-                child: Image.network(
-                  news.imageUrl,
-                  fit: BoxFit.fitWidth,
-                  width: MediaQuery.of(context).size.width * 0.90,
-                  height: 230,
+                child: FullScreenWidget(
+                  backgroundIsTransparent: true,
+                  child: Image.network(
+                    news.imageUrl,
+                    fit: BoxFit.fitWidth,
+                    width: MediaQuery.of(context).size.width * 0.90,
+                    height: 230,
+                  ),
                 ),
               ),
               Padding(
