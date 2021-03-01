@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:todo_app/components/todo_list.dart';
 
 void main() {
   runApp(MyApp());
@@ -14,6 +15,7 @@ class MyApp extends StatelessWidget {
         appBar: AppBar(
           title: Text('ToDoApp'),
         ),
+        body: ToDoList(),
       ),
     );
   }
