@@ -11,12 +11,12 @@ class ToDoList extends StatefulWidget {
 
 class _ToDoListState extends State<ToDoList> {
   List<ToDo> _todoList = [
-    ToDo(1, 'asdf', 'asdf'),
-    ToDo(2, 'asdfas', 'asdf'),
-    ToDo(3, 'asdf', 'asdf'),
+    ToDo(1, 'asdf', 'asdf', false),
+    ToDo(2, 'asdfas', 'asdf', false),
+    ToDo(3, 'asdf', 'asdf', false),
   ];
 
-  void clearList(todo) {
+  void removeItem(todo) {
     setState(() {
       _todoList.remove(todo);
     });
@@ -28,9 +28,7 @@ class _ToDoListState extends State<ToDoList> {
       child: Column(
         children: _todoList
             .map((i) => ToDoListItem(i, () {
-                  setState(() {
-                    _todoList.remove(i);
-                  });
+                  removeItem(i);
                 }))
             .toList(),
       ),
