@@ -11,14 +11,31 @@ class ToDoList extends StatefulWidget {
 
 class _ToDoListState extends State<ToDoList> {
   List<ToDo> _todoList = [
-    ToDo(1, 'asdf', 'asdf', false),
-    ToDo(2, 'asdfas', 'asdf', false),
-    ToDo(3, 'asdf', 'asdf', false),
+    ToDo(
+      1,
+      'asdf asdfasdf',
+      'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.',
+      false,
+    ),
+    ToDo(
+      2,
+      'adipiscing elit, sed',
+      'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.',
+      false,
+    ),
+    ToDo(
+      3,
+      'dolor sit amet',
+      'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.',
+      false,
+    ),
   ];
 
   void removeItem(todo) {
     setState(() {
-      _todoList.remove(todo);
+      final _itemIndex = _todoList.indexOf(todo);
+      _todoList[_itemIndex] =
+          ToDo(todo.id, todo.title, todo.body, !todo.complete);
     });
   }
 

@@ -11,8 +11,51 @@ class ToDoListItem extends StatelessWidget {
     return GestureDetector(
       onTap: deleteToDo,
       child: Container(
-        height: 50,
-        child: Text(todo.title),
+        width: MediaQuery.of(context).size.width,
+        decoration: BoxDecoration(
+          border: Border(
+            bottom: BorderSide(
+              color: Colors.black26,
+            ),
+          ),
+        ),
+        padding: EdgeInsets.all(20.0),
+        child: ToDoListItemContent(todo),
+      ),
+    );
+  }
+}
+
+class ToDoListItemContent extends StatelessWidget {
+  final ToDo todo;
+  const ToDoListItemContent(this.todo);
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Text(
+            todo.title,
+            style: TextStyle(
+              fontWeight: FontWeight.bold,
+              fontSize: 18,
+              decoration: todo.complete ? TextDecoration.lineThrough : null,
+              color: todo.complete ? Colors.white38 : Colors.white,
+            ),
+          ),
+          SizedBox(
+            height: 15,
+          ),
+          Text(
+            todo.body,
+            style: TextStyle(
+              decoration: todo.complete ? TextDecoration.lineThrough : null,
+              color: todo.complete ? Colors.white38 : Colors.white,
+            ),
+          )
+        ],
       ),
     );
   }
