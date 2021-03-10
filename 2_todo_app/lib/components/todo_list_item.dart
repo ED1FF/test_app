@@ -9,6 +9,11 @@ class ToDoListItem extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
+      onHorizontalDragEnd: (details) {
+        if (details.primaryVelocity > 0 || details.primaryVelocity < 0) {
+          deleteToDo();
+        }
+      },
       onTap: deleteToDo,
       child: Container(
         width: MediaQuery.of(context).size.width,
