@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:todo_app/models/todo.dart';
+import 'package:todo_app/pages/todo_preview_page.dart';
 
 class ToDoListItem extends StatelessWidget {
   final ToDo todo;
@@ -14,7 +15,13 @@ class ToDoListItem extends StatelessWidget {
           deleteToDo();
         }
       },
-      onTap: deleteToDo,
+      onTap: () {
+        Navigator.push(
+          context,
+          MaterialPageRoute(
+              builder: (context) => ToDoPreviewPage(todo, deleteToDo)),
+        );
+      },
       child: Container(
         width: MediaQuery.of(context).size.width,
         decoration: BoxDecoration(
